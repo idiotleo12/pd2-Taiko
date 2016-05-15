@@ -13,12 +13,10 @@ void drum::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Left)
     {
-        if(counter<9)
+        if(counter<19)
             counter++;
-        //setPos(x(),y()-10);
-        //qDebug()<<this->pos();
-        //scene()->removeItem(this);
-        if(this->x()<=40&&this->x()>=20)
+
+        if(this->x()<=40&&this->x()>=20&&this->color==1)
         {
             score=score+10;
         }
@@ -29,8 +27,16 @@ void drum::keyPressEvent(QKeyEvent *event)
       }
     else if(event->key() == Qt::Key_Right)
         {
-            //setPos(x(),y()-10);
-            //qDebug()<<"key right get";
+        if(counter<19)
+            counter++;
+
+        if(this->x()<=40&&this->x()>=20&&this->color==2)
+        {
+            score=score+10;
+        }
+        this->scene()->clearFocus();
+        this->hide();
+        qDebug()<<"score:"<<drum::score;
 
         }
 }
@@ -41,11 +47,21 @@ drum::drum()
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
     timer->start(50);
+    color=0;
 }
 
 void drum::move()
 {
     if(this->x() <0)
-        this->hide();
+    {
+        this->scene()->clearFocus();
+        this->removeFromIndex();
+        //counter++;
+    }
     setPos(x()-5,y());
+}
+
+drum::~drum()
+{
+    delete this;
 }

@@ -14,12 +14,18 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    drum.cpp
+    drum.cpp \
+    start.cpp \
+    result.cpp
 
 HEADERS  += mainwindow.h \
-    drum.h
+    drum.h \
+    start.h \
+    result.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    start.ui \
+    result.ui
 
 RESOURCES += \
     resource.qrc

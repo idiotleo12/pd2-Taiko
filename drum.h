@@ -12,12 +12,11 @@ public:
     static int score;
     static int counter;
     //void clone(drum *d);
+    int color;//1=blue 2=red
     void keyPressEvent(QKeyEvent * event);
     drum();
-
-    //void start();
+    ~drum();
 public slots:
-    //void update_score(QLabel * label);
     void move();
 private:
 
