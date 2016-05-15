@@ -5,5 +5,6 @@
         <file>drum_blue.png</file>
         <file>drum_red.png</file>
         <file>target.png</file>
+        <file>bglayer_gogo.png</file>
     </qresource>
 </RCC>
